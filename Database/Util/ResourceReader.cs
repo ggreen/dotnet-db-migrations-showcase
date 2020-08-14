@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 
@@ -6,7 +7,7 @@ namespace DbMigrations.Database.Util
 {
     public class ResourceReader
     {
-        internal string ReadResource(string resourceName)
+        public virtual string ReadResource(string resourceName)
         {
             var assembly =Assembly.GetExecutingAssembly();
 
@@ -26,6 +27,11 @@ namespace DbMigrations.Database.Util
                         return reader.ReadToEnd();
                     }       
             }
+        }
+
+        public virtual String ReadSystemSql()
+        {
+           return ReadResource("PostgresSystem.sql");
         }
     }
 }

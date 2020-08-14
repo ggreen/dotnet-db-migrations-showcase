@@ -27,6 +27,7 @@ dotnet ef database drop
 dotnet add package xunit --version 2.4.1
 dotnet add package Microsoft.NET.Test.Sdk --version 16.7.0
 dotnet add package xunit.runner.visualstudio --version 2.4.3
+dotnet add package Moq --version 4.14.5
 
 Update csproj
 

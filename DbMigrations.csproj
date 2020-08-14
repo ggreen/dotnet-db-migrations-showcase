@@ -11,6 +11,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.0" />
+    <PackageReference Include="Moq" Version="4.14.5" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.4" />
     <EmbeddedResource Include="Resources/PostgresSystem.sql" />
     <PackageReference Include="xunit" Version="2.4.1" />
