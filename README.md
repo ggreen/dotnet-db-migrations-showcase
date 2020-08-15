@@ -59,3 +59,16 @@ Note youd muist Update csproj the *PropertyGroup* section. Add the following
     <GenerateProgramFile>false</GenerateProgramFile>
 ```
     
+# Docker 
+
+From root directory 
+
+```
+docker build -t dbmigration .
+```
+
+
+docker run -i -t -a stdout -a stderr --name dbmigration-task dbmigration
+
+docker exec -i -t 6f60441901dc bash
+
