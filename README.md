@@ -4,6 +4,9 @@ Database migration is a pattern that supports changes for application data backi
 
 This project is an implementation using [DOTNET Microsoft Entity Framework](https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli).
 
+
+# Setup
+
 ## Setup in VS CODE
 
 
@@ -24,9 +27,17 @@ dotnet ef migrations add PostgresApp
 ```
 
 
-##  Run the migration
+#  Run the migration
 
+
+Set an environment variable
+
+```shell
+export POSTGRES_CONNECTION_STRING=Host=localhost;Database=postgres;Username=postgres;Password=mysecretpassword
 ```
+
+
+```shell
 dotnet ef database update
 ```
 
@@ -63,12 +74,16 @@ Note youd muist Update csproj the *PropertyGroup* section. Add the following
 
 From root directory 
 
-```
+```shell
 docker build -t dbmigration .
 ```
 
+```shell
+docker run -e POSTGRES_CONNECTION_STRING="Host=<host>;Database=postgres;Username=postgres;Password=mysecretpassword" -i -t -a stdout -a stderr --name dbmigration-task dbmigration
+```
 
-docker run -i -t -a stdout -a stderr --name dbmigration-task dbmigration
+Debug a long running container
 
+```shell
 docker exec -i -t 6f60441901dc bash
-
+```

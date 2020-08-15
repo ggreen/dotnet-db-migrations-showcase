@@ -1,16 +1,19 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
 namespace EFGetStarted
 {
-    public class BloggingContext : DbContext
+    public class PostgresContext : DbContext
     {
-        // public DbSet<Blog> Blogs { get; set; }
-        // public DbSet<Post> Posts { get; set; }
+        private const string CONNECTION_STRING_ENV = "POSTGRES_CONNECTION_STRING";
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            string confiuration = "Host=localhost;Database=postgres;Username=postgres;Password=mysecretpassword";
+            string confiuration = Environment.GetEnvironmentVariable(CONNECTION_STRING_ENV);
+            if(confiuration == null)
+                throw new ArgumentException($"Missing environment variable: {CONNECTION_STRING_ENV}");
+
             options.UseNpgsql(confiuration);
 
         }

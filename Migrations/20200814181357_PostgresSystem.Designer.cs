@@ -8,7 +8,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace DbMigrations.Migrations
 {
-    [DbContext(typeof(BloggingContext))]
+    [DbContext(typeof(PostgresContext))]
     [Migration("20200814181357_PostgresSystem")]
     partial class PostgresSystem
     {
